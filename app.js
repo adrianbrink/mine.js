@@ -8,10 +8,13 @@ global.config = require('./config')
 const Sonar = require('./lib/sonar')
 
 // magic numbers that need to be parsed via CLI
-const contractAddress = '0x9d63e02fc482c48e38c280ba882a74ec03df4739'
-const mineAddress = '0x962b91D9aD11488960Cdc4552FF820520D12Ed23'
+const contractAddress = '0xaB0b0c0dB8608D99172e8631C06AeBACbA4F4Cb9' // first private from docker-compose
+const mineAddress = '0xf0FBE8eF307De70adAF6d17548f3937c6bb26c98' // 2nd rsprivate from docker-compose
 
 const sonar = new Sonar(contractAddress, mineAddress)
+const accounts = sonar.web3.eth.getAccounts()
+  .then(a => console.log(a.slice(0, 10)))
+
 async function checkForModels () {
   const modelCount = await sonar.getNumModels()
   console.log(`${modelCount} models found`)

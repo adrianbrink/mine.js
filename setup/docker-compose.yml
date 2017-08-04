@@ -13,4 +13,4 @@ services:
     image: "harshjv/testrpc:latest"
     ports:
       - "8545:8545"
-    command: --accounts 400
+    command: --accounts 400 --account="0x4b67b0f4bcbfd70bc5ee9610a6d153668cb64fcbeec8ce60dcbebeb3b6ae5790,10000" --account="0x5b427259bf8efe320bb828c508ea136dcbda6ba0ae9a94b317eae0fe374b3d10,0"
