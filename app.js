@@ -8,11 +8,11 @@ global.config = require('./config')
 const Sonar = require('./lib/sonar')
 
 // magic numbers that need to be parsed via CLI
-const contractAddress = '0xaB0b0c0dB8608D99172e8631C06AeBACbA4F4Cb9' // first private from docker-compose
-const mineAddress = '0xf0FBE8eF307De70adAF6d17548f3937c6bb26c98' // 2nd rsprivate from docker-compose
+const contractAddress = '0x9c625c13048a5f5a374acc4ed6801211020f212a'
+const mineAddress = '0x7d372bBA2139adfe8f4D68dA91B9f0Ea4dB1aef0' // 2nd account
 
 const sonar = new Sonar(contractAddress, mineAddress)
-const accounts = sonar.web3.eth.getAccounts()
+sonar.web3.eth.getAccounts()
   .then(a => console.log(a.slice(0, 10)))
 
 async function checkForModels () {
@@ -22,9 +22,9 @@ async function checkForModels () {
   for (let modelId = 0; modelId < modelCount; modelId++) {
     const model = await sonar.getModel(modelId)
     console.log(`model#${modelId}: ${model.weightsAddress}`)
-    if (model.gradientCount > 0) {
+    if (model.gradientCount > Infinity) { // disable for now
       const gradients = await sonar.getModelGradients(modelId, model.gradientCount - 1)
-      console.log(`latest gradient#${gradients.id}: ${gradients.weightsAddress[0] + gradients.weightsAddress[1]}`)
+      console.log(`latest gradient#${gradients.id}: ${gradients.weightsAddress}`)
     }
   }
 
