@@ -20,7 +20,10 @@
 The code was developed using node **v8.1.2** and it is recommend to stick around this version.
 
 ```sh
+# install this project
 npm install
+# in addition you need the syft python library installed
+pip install git+https://github.com/OpenMined/Syft.git
 ```
 
 ### 🏁 Start
