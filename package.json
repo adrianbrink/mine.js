@@ -39,7 +39,6 @@
     "standard": "^10.0.2"
   },
   "dependencies": {
-    "bignumber.js": "^4.0.2",
     "commander": "^2.11.0",
     "ipfs-api": "^14.1.1",
     "node-schedule": "^1.2.3",
