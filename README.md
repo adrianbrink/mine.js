@@ -56,8 +56,8 @@ Currently the `Mine` polls a fixed `contractAddress` for available models and li
 Features that should follow: 
 
 * [x] Poll `Sonar` for available models
-* [ ] Download the model/weights via `IPFS`
-* [ ] Train the model using `syft`
+* [x] Download the model/weights via `IPFS`
+* [x] Train the model using `syft`
 * [ ] Get `contractAddress`/`mineAddress` via arguments/env variables
 * [ ] Filter models for those matching available training data (requires feature change on Sonar contract)
 
